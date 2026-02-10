@@ -560,7 +560,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **Live Demo**: [https://dhw8up7zqcdil.cloudfront.net/](https://dhw8up7zqcdil.cloudfront.net/)
 
-**GitHub**: [https://github.com/iuriseifriz/Glue-Pipeline](https://github.com/iuriseifriz/Glue-Pipeline)
+**GitHub**: [https://github.com/iuriseifriz/](https://github.com/iuriseifriz/)
 
 **Author**: Iuri Seifriz
 **LinkedIn**: [https://linkedin.com/in/iuri-seifriz-152702239](https://br.linkedin.com/in/iuri-seifriz-152702239)
