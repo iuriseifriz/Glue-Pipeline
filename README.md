@@ -11,7 +11,7 @@ A production-grade, serverless data engineering pipeline that ingests, transform
 
 ---
 
-## 🏗️ Architecture Overview
+## Architecture Overview
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
@@ -49,7 +49,9 @@ A production-grade, serverless data engineering pipeline that ingests, transform
 │  └──────────────────┘                        └──────────────────┘          │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
-
+### Step Functions Workflow
+![AWS Step Functions State Machine](img/img.png)
+*Automated orchestration of the entire data pipeline*
 ---
 
 ## Project Goals
@@ -558,24 +560,17 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **Live Demo**: [https://dhw8up7zqcdil.cloudfront.net/](https://dhw8up7zqcdil.cloudfront.net/)
 
-**GitHub**: [https://github.com/yourusername/crypto-datalake-pipeline](https://github.com/yourusername/crypto-datalake-pipeline)
+**GitHub**: [https://github.com/iuriseifriz/Glue-Pipeline](https://github.com/iuriseifriz/Glue-Pipeline)
 
-**Author**: Your Name  
-**LinkedIn**: [linkedin.com/in/yourprofile](https://linkedin.com/in/yourprofile)  
-**Portfolio**: [yourportfolio.com](https://yourportfolio.com)  
-**Email**: your.email@example.com
+**Author**: Iuri Seifriz
+**LinkedIn**: [https://linkedin.com/in/iuri-seifriz-152702239](https://br.linkedin.com/in/iuri-seifriz-152702239)
+**Email**: iurirseifriz@gmail.com
 
 ---
 
 ## Visual Documentation
 
-### Step Functions Workflow
-![AWS Step Functions State Machine](frontend/img.png)
-*Automated orchestration of the entire data pipeline*
 
-### Live Dashboard
-![Cryptocurrency Dashboard](docs/website-screenshot.png)
-*Real-time cryptocurrency market data visualization*
 
 ### Data Lake Structure
 ```
@@ -612,5 +607,3 @@ s3://crypto-datalake-{account-id}/
 ---
 
 ** If this project helped you learn about data engineering or AWS, please give it a star!**
-
-**Built with ❤️ using AWS, Terraform, PySpark, by Iuri Seifriz**
