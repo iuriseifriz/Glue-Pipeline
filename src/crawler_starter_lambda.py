@@ -5,8 +5,8 @@ glue = boto3.client('glue')
 
 def lambda_handler(event, context):
     """
-    start crawler and wait
-    wait to receive: {"CrawlerName": "nome-do-crawler"}
+    start glue
+    wait receive: {"CrawlerName": "crawler-name"}
     """
     crawler_name = event.get('CrawlerName')
     
@@ -21,8 +21,8 @@ def lambda_handler(event, context):
     except glue.exceptions.CrawlerRunningException:
         print(f"Crawler {crawler_name} is already running")
     
-    # Polling until crawler ends
-    max_attempts = 60  # 30 minutes (30s * 60)
+    # Polling until the crawler ends, keeping max polling under the timeout of 15 min with margin
+    max_attempts = 25
     
     for attempt in range(max_attempts):
         response = glue.get_crawler(Name=crawler_name)
@@ -45,9 +45,9 @@ def lambda_handler(event, context):
                 raise Exception(f"Crawler {crawler_name} failed with status: {status}")
         
         elif state in ['RUNNING', 'STOPPING']:
-            time.sleep(30)  # wait 30 seconds
+            time.sleep(30)
         
         else:
             raise Exception(f"Crawler {crawler_name} in unexpected state: {state}")
     
-    raise Exception(f"Crawler {crawler_name} timeout after {max_attempts * 30} seconds")
+    raise Exception(f"Crawler {crawler_name} timed out after {max_attempts * 30}s (Lambda limit)")
