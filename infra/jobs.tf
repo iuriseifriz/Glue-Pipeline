@@ -20,7 +20,9 @@ resource "aws_glue_job" "bronze_to_silver" {
 
   default_arguments = {
     "--job-language" = "python"
-  }
+    "--job-bookmark-option" = "job-bookmark-enable"
+}
+
 }
 
 resource "aws_glue_job" "silver_to_gold" {
@@ -57,3 +59,4 @@ resource "aws_glue_job" "silver_to_gold" {
 }
 
 #end of this tf file
+
