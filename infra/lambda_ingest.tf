@@ -18,6 +18,12 @@ resource "aws_lambda_function" "ingest_crypto_coins" {
     "arn:aws:lambda:us-east-1:381492258425:layer:requests-layer:1"
   ]
 
+  environment {
+    variables = {
+      S3_BUCKET = aws_s3_bucket.datalake.bucket
+    }
+  }
+
 
   filename      = "dummy.zip"
   source_code_hash = "dummy"
@@ -80,5 +86,6 @@ resource "aws_iam_role_policy_attachment" "lambda_ingest_basic_execution" {
   role       = aws_iam_role.lambda_ingest_role.name
   policy_arn = "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
 }
+
 
 #end of this tf file
