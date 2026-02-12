@@ -2,11 +2,12 @@ import json
 import requests
 import boto3
 from datetime import datetime, timezone
+import os
 
-S3_BUCKET = "crypto-datalake-381492258425"
+S3_BUCKET = os.environ["S3_BUCKET"]
+COINGECKO_URL = os.environ.get("COINGECKO_URL", "https://api.coingecko.com/api/v3/coins/markets")
+
 S3_PREFIX = "bronze/coins_market"
-
-COINGECKO_URL = "https://api.coingecko.com/api/v3/coins/markets"
 
 def lambda_handler(event, context):
     params = {
@@ -44,3 +45,4 @@ def lambda_handler(event, context):
         "statusCode": 200,
         "message": f"Data written to s3://{S3_BUCKET}/{s3_key}"
     }
+
